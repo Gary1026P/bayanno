@@ -44,7 +44,6 @@
                         </div>
                     </div>
 					
-					
                     <div class="form-group">
                         <label for="field-1" class="col-sm-3 control-label">first name </label>
 
