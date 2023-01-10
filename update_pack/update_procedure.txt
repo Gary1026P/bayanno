@@ -1,0 +1,9 @@
+Please follow the instructions carefully.
+- At first keep a backup of the database.php file. Which is located at application > config > database.php
+- Replace the existing application and assets folder with the downloaded application and assets folder.
+- Replace the backup database.php (Which you have done in the first step) file with the new database.php file. Which is located at application > config > database.php.
+- Open the file name "routes.php" which is located at application > config > routes.php and move to line number 52 and replace the "install" with "home" as default controller.
+- That's it
+
+PLEASE MAKE SURE THAT YOU ARE RUNNING THE 4.2 VERSION BEFORE UPDATING TO 4.3
+IF YOU ARE ALREADY RUNNING THE 4.3 VERSION THERE IS NO NEED TO UPDATE… Thank You
