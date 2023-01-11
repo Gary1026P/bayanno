@@ -384,13 +384,12 @@ class Admin extends CI_Controller
         }
 
         $data['approval_info'] = $this->crud_model->select_awaiting_info("yes", "", "", "Ready case");
-
         $suitable_info = $this->crud_model->select_suitable_awaiting_info("yes", "", "", "Ready case");
 
         if($suitable_info){
           $data['approval_info'] = array_merge($data['approval_info'], $suitable_info);
         }
-        
+
         $data['page_name']    = 'show_readycases';
         $data['page_title']   = get_phrase('patient');
         $this->load->view('backend/index', $data);

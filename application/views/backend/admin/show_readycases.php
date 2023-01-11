@@ -15,12 +15,12 @@
     </thead>
 
     <tbody>
-        <?php foreach ($approval_info as $row) {
+        <?php foreach ($approval_info as $idx => $row) {
           $source = !empty($row['source']) ? $row['source'] : "work_injury";
         ?>   
             <tr>
 
-                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $idx+1 ?></td>
                 <td><?php echo $row['name']." ".$row['sname']." ".$row['tame']." ".$row['lname'] ?></td>
                 <td><?php echo $row['emp_no'] ?></td>
                 <td><?php echo $row['unitname'] ?></td>
@@ -33,7 +33,7 @@
                     <?php } ?>
                     <input type="file" id="choosefile" />
                 </td>
-                <td><input type="text" id="decision" value=<?php echo $row['decision'] ?>></td>
+                <td><input type="text" id="decision" value="<?php echo (isset($row['decision']) ? htmlspecialchars($row['decision']) : ''); ?>" ></td>
                 <td>
                     <button type="button" class="btn btn-success" onclick="saveData(<?php echo $row['id'];?>, '<?php echo $source; ?>', $('#decision').val());" >Save</button>
                     <button type="button" class="btn btn-warning" onclick="deleteData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >Delete</button>

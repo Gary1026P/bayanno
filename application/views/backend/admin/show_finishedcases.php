@@ -16,19 +16,19 @@
     </thead>
 
     <tbody>
-        <?php foreach ($approval_info as $row) {
+        <?php foreach ($approval_info as $idx => $row) {
           $source = !empty($row['source']) ? $row['source'] : "work_injury";
         ?>   
             <tr>
 
-                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $idx+1 ?></td>
                 <td><?php echo $row['name']." ".$row['sname']." ".$row['tame']." ".$row['lname'] ?></td>
                 <td><?php echo $row['emp_no'] ?></td>
                 <td><?php echo $row['unitname'] ?></td>
                   <td><?php echo ($row['work_type'] == 1) ? "DGM" : "PPM"  ?></td>
                 <td><?php echo isset($row['source']) ? "Work suitability": "work injury" ?></td>
                 <td><?php echo $row['vacation'] ?></td>
-                <td><input type="text" class="form-control datepicker" value="<?php if($row['meeting_date']){ echo  date('m/d/Y', strtotime($row['appointment_date'])); }?>"  id="appoint<?php echo $source.$row['id'];?>" ?>  </td>
+                <td><input type="text" class="form-control datepicker" value="<?php if($row['meeting_date']){ echo  date('m/d/Y', strtotime($row['meeting_date'])); }?>"  id="appoint<?php echo $source.$row['id'];?>" ?>  </td>
                 <td><input type="number" class="form-control" value="<?php if($row['meeting_number']){ echo  $row['meeting_number']; }?>"  id="appointnumber<?php echo $source.$row['id'];?>" ?>  </td>
                 <td>
                   <button type="button" class="btn btn-warning" onclick="deleteData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >delete</button>&nbsp;<button type="button" class="btn btn-success" onclick="updateData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >add</button>               
