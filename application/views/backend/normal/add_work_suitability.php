@@ -202,7 +202,7 @@
                                     <span class="">
                                         
                                 
-                                        <input type="file" name="Sickleave_ three quarters" accept="application/pdf">
+                                        <input type="file" name="Sickleave_three_quarters" accept="application/pdf">
                                     </span>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@
                                     <span class="">
                                         
                                 
-                                        <input type="file" name="Sickleave_ half" accept="application/pdf">
+                                        <input type="file" name="Sickleave_half" accept="application/pdf">
                                     </span>
                                 </div>
                             </div>
@@ -242,7 +242,7 @@
                                     <span class="">
                                         
                                 
-                                        <input type="file" name="unit_letter2" accept="application/pdf">
+                                        <input type="file" name="unit_letter" accept="application/pdf">
                                     </span>
                                 </div>
                             </div>
@@ -261,7 +261,7 @@
                                     <span class="">
                                         
                                 
-                                        <input type="file" name="medical_report2" accept="application/pdf">
+                                        <input type="file" name="medical_report" accept="application/pdf">
                                     </span>
                                 </div>
                             </div>

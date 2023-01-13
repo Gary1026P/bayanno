@@ -12,7 +12,7 @@
 
             <div class="panel-body">
 
-                <form role="form" class="form-horizontal form-groups" action="<?php echo site_url('admin/updatecase'); ?>" 
+                <form role="form" class="form-horizontal form-groups" action="<?php echo site_url('normal/updatecase'); ?>" 
                     method="post" enctype="multipart/form-data">
 
 

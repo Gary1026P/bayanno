@@ -94,7 +94,6 @@ class Normal extends CI_Controller
           $this->session->set_flashdata('message', get_phrase('deleted_successfuly'));
           echo get_phrase('Success');
         }                  
-      
     }
 
     function saveAppointment() {

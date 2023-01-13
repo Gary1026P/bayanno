@@ -404,16 +404,16 @@ class Crud_model extends CI_Model {
 
         if (isset($_FILES['injury_report']) && $_FILES['injury_report']['name'] != ''){
                         
-                        $filename = $_FILES['injury_report']['name'];
-                        $temp = $_FILES['injury_report']['tmp_name'];
-                        $file_type=$_FILES['injury_report']['type'];
-                        
+            $filename = $_FILES['injury_report']['name'];
+            $temp = $_FILES['injury_report']['tmp_name'];
+            $file_type=$_FILES['injury_report']['type'];
+            
 
-                        $file_ext = pathinfo($_FILES['injury_report']['name'], PATHINFO_EXTENSION);
-                        $doc2_file = 'injury_report_'.md5('injury_report').rand().'.'.$file_ext;
-                        $path = './uploads/patient_doc/'.$doc2_file;
-                        move_uploaded_file($temp,$path);
-                        $data['doc2']            = $doc2_file;
+            $file_ext = pathinfo($_FILES['injury_report']['name'], PATHINFO_EXTENSION);
+            $doc2_file = 'injury_report_'.md5('injury_report').rand().'.'.$file_ext;
+            $path = './uploads/patient_doc/'.$doc2_file;
+            move_uploaded_file($temp,$path);
+            $data['doc2']            = $doc2_file;
     
         } 
 

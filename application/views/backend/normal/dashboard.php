@@ -32,19 +32,18 @@
     </thead>
 
     <tbody>
-        <?php foreach ($approval_info as $row) {
+        <?php foreach ($approval_info as $idx => $row) {
           $source = !empty($row['source']) ? $row['source'] : "work_injury";
         ?>   
             <tr>
-
-                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $idx+1 ?></td>
                 <td><?php echo $row['name']." ".$row['sname']." ".$row['tame']." ".$row['lname'] ?></td>
                 <td><?php echo $row['emp_no'] ?></td>
                 <td><?php echo $row['unitname'] ?></td>
                 <td><?php echo ($row['work_type'] == 1) ? "DGM" : "PPM"  ?></td>
                 <td><?php echo isset($row['source']) ? "Work suitability": "Work injury" ?></td>
                 <td>
-                  <?php if($row['doc1']) { ?>
+                    <?php if($row['doc1']) { ?>
                         <a href="./uploads/patient_doc/<?php echo $row['doc1']; ?>" target="_blank"><?php echo substr($row['doc1'], 0, strrpos($row['doc1'], '_')) ?></a><br>
                     <?php } ?>
                     <?php if($row['doc2']) { ?>
@@ -54,12 +53,15 @@
                         <a href="./uploads/patient_doc/<?php echo $row['doc3']; ?>" target="_blank"><?php echo substr($row['doc3'], 0, strrpos($row['doc3'], '_')) ?></a><br>
                     <?php } ?>
                     <?php if($row['doc4']) { ?>
-                        <a href="./uploads/patient_doc/<?php echo $row['doc4']; ?>" target="_blank"><?php echo substr($row['doc4'], 0, strrpos($row['doc4'], '_')) ?></a>
-                  <?php } ?>
+                        <a href="./uploads/patient_doc/<?php echo $row['doc4']; ?>" target="_blank"><?php echo substr($row['doc4'], 0, strrpos($row['doc4'], '_')) ?></a><br>
+                    <?php } ?>
+                    <?php if($row['doc5']) { ?>
+                        <a href="./uploads/patient_doc/<?php echo $row['doc5']; ?>" target="_blank"><?php echo substr($row['doc5'], 0, strrpos($row['doc5'], '_')) ?></a>
+                    <?php } ?>
                 </td>
                 <td>
                     <button type="button" class="btn btn-success" onclick="editData(<?php echo $row['id'];?>, '<?php echo $source; ?>', $('#decision').val());" >Edit</button>
-                    <button type="button" class="btn btn-warning" onclick="deleteData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >Delete</button>
+                    <button type="button" class="btn btn-warning" onclick="onClickDeleteBtn(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >Delete</button>
                 </td>
                 
             </tr>
@@ -101,18 +103,11 @@
             replaceCheckboxes();
         });
     });
-    
-    
-    function deleteData(id, source){
-      $.ajax({
-        url: "normal/deleteAppointment",
-        data: {"id":id, "source" : source},
-        type: "POST",
-        success: function (result) {
-          location.reload();
-        }
-      });
+
+    function onClickDeleteBtn(id, source) {
+        showConfirmDeleteModal(id, source);
     }
+    
 
     function editData(id, source) {
         if (source == 'work_injury') {

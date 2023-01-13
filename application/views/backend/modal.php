@@ -203,3 +203,48 @@ document.getElementById('delete_link').setAttribute('href' , delete_url);
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    function showConfirmDeleteModal(id, source)
+    {
+        $('.delete-confirm-modal').css('margin-top', window.scrollY);
+        jQuery("#modal-delete-confirm").modal('show', {backdrop: 'true'});
+    }
+
+    function deleteData() {
+        $.ajax({
+        url: "normal/deleteAppointment",
+        data: {"id":<?php echo $row['id']; ?>, "source" : '<?php echo $source; ?>'},
+        type: "POST",
+        success: function (result) {
+            toastr.info(result);
+            location.reload();
+        }
+        });
+    }
+
+</script>
+
+<!-- (Remove Confirm Modal)-->
+<div class="modal fade delete-confirm-modal" id="modal-delete-confirm">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Confirm</h4>
+            </div>
+
+            <div class="modal-body" style="height:5vh;">
+              <p>Do you remove case?</p>
+              
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" onClick="deleteData()">Confirm</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
