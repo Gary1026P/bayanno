@@ -52,7 +52,7 @@
                             <form class="" action="<?php echo site_url('login/do_login');?>" method="post">
                                 <div class="section-field mb-20">
                                     <label class="mb-10" for="name">username</label>
-                                    <input id="email" class="web form-control" type="email" name="email" required>
+                                    <input id="email" class="web form-control" type="text" name="email" required>
                                 </div>
                                 <div class="section-field mb-20">
                                     <label class="mb-10" for="Password">password</label>

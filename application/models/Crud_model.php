@@ -1281,8 +1281,9 @@ class Crud_model extends CI_Model {
             $this->db->group_end();
         }
         if($this->session->userdata('is_normal')) {
-            $this->db->join('normal', 'normal.email = work_injury.created_by', 'RIGHT');
+            $this->db->where('created_by', $this->session->userdata('email'));
         }
+
         return $this->db->get('work_injury')->result_array();
     }
 
@@ -1306,7 +1307,7 @@ class Crud_model extends CI_Model {
             $this->db->group_end();
         }
         if($this->session->userdata('is_normal')) {
-            $this->db->join('normal', 'normal.email = work_suitability.created_by');
+            $this->db->where('created_by', $this->session->userdata('email'));
         }
         return $this->db->get('work_suitability')->result_array();
     }
