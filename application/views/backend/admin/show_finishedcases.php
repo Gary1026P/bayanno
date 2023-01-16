@@ -31,7 +31,7 @@
                 <td><input type="text" class="form-control datepicker" value="<?php if($row['meeting_date']){ echo  date('m/d/Y', strtotime($row['meeting_date'])); }?>"  id="appoint<?php echo $source.$row['id'];?>" ?>  </td>
                 <td><input type="number" class="form-control" value="<?php if($row['meeting_number']){ echo  $row['meeting_number']; }?>"  id="appointnumber<?php echo $source.$row['id'];?>" ?>  </td>
                 <td>
-                  <button type="button" class="btn btn-warning" onclick="deleteData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >delete</button>&nbsp;<button type="button" class="btn btn-success" onclick="updateData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >add</button>               
+                  <button type="button" class="btn btn-warning" onclick="deleteFinishcaseData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >delete</button>&nbsp;<button type="button" class="btn btn-success" onclick="updateData(<?php echo $row['id'];?>, '<?php echo $source; ?>');" >add</button>               
                 </td>
                 
             </tr>
@@ -75,7 +75,7 @@
     });
     
     
-    function deleteData(id, source){
+    function deleteFinishcaseData(id, source){
       $.ajax({
         url: "deleteAppointment",
         data: {"id":id, "source" : source},
@@ -87,7 +87,6 @@
     }
     
     function updateData(id, source){
-      console.log($("#appoint"+source+id).val());
       $.ajax({
         url: "updateData",
         data: {"id":id, "source" : source, "number":$("#appointnumber"+source+id).val(), "date":$("#appoint"+source+id).val()},

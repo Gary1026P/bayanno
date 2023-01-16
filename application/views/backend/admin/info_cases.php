@@ -235,11 +235,11 @@ $source = isset($row['source']) ? 'work_suitability' : 'work_injury';
 
   <div class="form-group col-sm-5" >
     <select id="statusNew" class="form-select" onchange="changeStatus(); ">
-      <option value="">change stutus</option>
-      <option value="New case" >new case</option>
-      <option value="Active case" >active case</option>
-      <option value="Ready case" >ready case</option>
-      <option value="Finished case" >finish case</option> 
+      <option value="">تغيير الوضع</option>
+      <option value="New case" >حالة جديدة</option>
+      <option value="Active case" >حالة نشطة</option>
+      <option value="Ready case" >حالة جاهزة</option>
+      <option value="Finished case" >حالة النهاية</option> 
     </select>
   </div>
 </div>
