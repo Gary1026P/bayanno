@@ -675,7 +675,7 @@ class Admin extends CI_Controller
           $this->db->insert('work_comments', $insert);
           
         $this->session->set_flashdata('message', get_phrase('comment_added'));
-          redirect(site_url().'admin/infocases?searchVal='.$searchVal);
+        redirect(site_url().'admin/infocases?searchVal='.$searchVal);
         }
 
     }
